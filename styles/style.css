@@ -32,7 +32,7 @@ a {
 .overlay {
   position: absolute;
   inset: 0;
-  background-color: rgb(0 0 0 / 0.4); /* Полупрозрачный черный */
+  background-color: rgb(0 0 0 / 0.6); /* Полупрозрачный черный */
   z-index: 1;
 }
 
@@ -202,20 +202,233 @@ a {
   opacity: 0.8; /* Легкое затемнение */
 }
 
+/* ===== LOTS (лоти) ===== */
+
 .lots {
   padding: 180px 50px; /* Примерные отступы */
 }
 
-.about {
-  padding: 180px 50px; /* Примерные отступы */
-  display: grid;
-  grid-template-columns: 1fr 2fr; /* Левая колонка уже, правая шире */
-  gap: 25px;
+/* Заголовок секции */
+.lots__heading {
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-left: 40px; /* Отступ слева как в макете */
+  margin-bottom: 27px; /* Отступ до карточек */
 }
 
-/* ===== FOOTER ===== */
+/* Список карточек */
+.lots__card-list {
+  display: flex;
+  flex-wrap: wrap; /* Перенос на новую строку при переполнении */
+  gap: 25px; /* Расстояние между карточками */
+  list-style: none; /* Убираем маркеры списка */
+  margin-bottom: 30px; /* Отступ до ссылки "Посмотреть больше" */
+}
+
+/* Элемент списка (карточка) */
+.lots__card-list-item {
+  flex: 1 0 300px; /* Гибкая ширина, минимум 300px */
+  min-height: 450px; /* Минимальная высота карточки */
+}
+
+/* Ссылка-обертка карточки */
+.card-link {
+  display: block;
+  height: 100%; /* Занимает всю высоту родителя */
+  text-decoration: none; /* Убираем подчеркивание */
+  color: #fff;
+}
+
+/* Карточка */
+.card {
+  position: relative; /* Контекст для оверлея */
+  height: 100%; /* Занимает всю высоту ссылки */
+  padding: 50px 40px; /* Внутренние отступы для контента */
+  display: flex;
+  flex-direction: column; /* Вертикальное расположение контента */
+  justify-content: space-between; /* Распределяем контент по высоте */
+  background-size: cover; /* Фон на всю карточку */
+  background-position: center;
+  z-index: 1; /* Поднимаем контент над оверлеем */
+}
+
+/* Фоновые изображения для разных типов карточек */
+.card_type_film {
+  background-image: url(../images/card-lot-01.jpg);
+}
+
+.card_type_book {
+  background-image: url(../images/card-lot-02.jpg);
+}
+
+.card_type_picture {
+  background-image: url(../images/card-lot-03.jpg);
+}
+
+/* Заголовок карточки */
+.card__title {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-decoration: underline; /* Подчеркивание как в макете */
+  text-underline-offset: 3px;
+  z-index: 2; /* Выше оверлея */
+}
+
+/* Текст карточки */
+.card__text {
+  font-size: 20px;
+  line-height: 1.2;
+  z-index: 2; /* Выше оверлея */
+}
+
+/* Ссылка "Посмотреть больше" */
+.lots__look-more-link {
+  font-size: 20px;
+  margin-left: 40px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  color: #000;
+  transition: opacity 0.3s ease;
+}
+
+.lots__look-more-link:hover {
+  opacity: 0.7;
+}
+
+/* ===== ABOUT (об аукционе) ===== */
+
+/* Весь блок about */
+.about {
+  display: grid;
+  grid-template-columns: 430px 1fr; /* Левая колонка 430px, правая - всё остальное */
+  gap: 25px; /* Расстояние между колонками */
+  padding: 180px 50px;
+}
+
+/* Колонка (левая и правая) */
+.about__column {
+  /* Общие стили для колонок */
+}
+
+/* Контейнер для логотипа в левой колонке */
+.about__logo {
+  width: 240px;
+  height: 240px;
+  background-color: #000; /* Черный фон для круга */
+  border-radius: 50%; /* Делаем круг */
+  display: flex;
+  align-items: center; /* Вертикальное центрирование */
+  justify-content: center; /* Горизонтальное центрирование */
+  margin: 0 auto; /* Центрируем по горизонтали в своей колонке */
+}
+
+/* Изображение логотипа внутри круга */
+.about__logo-image {
+  width: 148px; /* Размер как в шапке */
+  height: 114px; /* Размер как в шапке */
+  object-fit: contain; /* Сохраняем пропорции */
+}
+
+/* Заголовок в правой колонке */
+.about__title {
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 100px; /* Отступ сверху для выравнивания с центром круга */
+  margin-bottom: 100px; /* Отступ снизу перед текстом */
+}
+
+/* Контейнер для текста */
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Расстояние между параграфами */
+}
+
+/* Параграфы текста */
+.about__text p {
+  font-size: 20px;
+  line-height: 1.2;
+  margin: 0; /* Убираем стандартные отступы */
+}
+
+/* ===== FOOTER (подвал) ===== */
+
+/* Весь блок футера */
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* Три равные колонки */
-  padding: 180px 50px 90px; /* Примерные отступы */
+  padding: 180px 50px 90px;
+}
+
+/* Адрес в футере */
+.footer .address {
+  justify-self: start; /* Выравниваем по левому краю своей колонки */
+  line-height: 1.35;
+  font-size: 18px;
+}
+
+/* Меню в футере */
+.footer__menu {
+  justify-self: center; /* Центрируем в своей колонке */
+}
+
+/* Список меню в футере */
+.footer__menu-list {
+  list-style: none; /* Убираем маркеры */
+  text-align: center; /* Центрируем текст */
+}
+
+/* Пункт меню в футере */
+.footer__menu-list-item {
+  margin-bottom: 5px; /* Небольшой отступ между пунктами */
+}
+
+/* Ссылка в меню футера */
+.footer__menu-link {
+  font-size: 18px;
+  text-decoration: underline; /* Все ссылки подчеркнуты */
+  text-underline-offset: 4px;
+  color: #000;
+  transition: opacity 0.3s ease;
+}
+
+/* Активная ссылка в меню футера */
+.footer__menu-link_active {
+  text-decoration: none; /* Активная ссылка без подчеркивания */
+}
+
+.footer__menu-link:hover {
+  opacity: 0.7;
+}
+
+/* Список социальных сетей */
+.footer__social-list {
+  justify-self: end; /* Выравниваем по правому краю своей колонки */
+  display: flex;
+  gap: 48px; /* Расстояние между иконками */
+  list-style: none; /* Убираем маркеры */
+}
+
+/* Пункт списка социальных сетей */
+.footer__social-list-item {
+  width: 48px; /* Фиксированная ширина для иконки */
+  height: 48px; /* Фиксированная высота для иконки */
+}
+
+/* Ссылка социальной сети */
+.footer__social-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Иконка социальной сети */
+.footer__social-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Сохраняем пропорции иконок */
 }
