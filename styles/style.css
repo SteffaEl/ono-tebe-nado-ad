@@ -1,39 +1,221 @@
-.header {
-  /* Стили для шапки */
+/* Общие стили для ссылок */
+a {
+  text-decoration: none; /* По умолчанию ссылки без подчеркивания */
+  color: inherit; /* Наследуем цвет текста */
 }
 
-.header__menu {
-  /* Контейнер меню */
+/* Подчеркиваем только ссылки в меню и адресе */
+.header__link,
+.header__address a {
+  text-decoration: underline;
 }
 
-.header__links-list {
-  /* Список ссылок */
-}
-
-.header__links-list-item {
-  /* Пункт списка */
-}
-
-.header__link {
-  /* Сама ссылка */
-}
-
-.header__link_active {
-  /* Активная ссылка */
-}
-
-.header__logo {
-  /* Контейнер логотипа */
-}
-
-.header__logo-image {
-  /* Картинка логотипа */
-}
-
+/* Стили для адреса (общие для header и footer) */
 .address {
-  /* Адрес (общий стиль) */
+  font-style: normal; /* Убираем курсив */
+  line-height: 1.35; /* Межстрочный интервал */
+  font-size: 18px;
 }
 
+/* Ссылки в адресе */
+.address a {
+  text-underline-offset: 4px;
+  display: block; /* Каждая на новой строке */
+}
+
+/* Абзац в адресе */
+.address p {
+  margin: 0; /* Убираем отступы */
+}
+
+/* Общие стили для блоков с оверлеем */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(0 0 0 / 0.4); /* Полупрозрачный черный */
+  z-index: 1;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: grid;
+  grid-template-columns: 1fr min-content 1fr; /* Три колонки: меню | лого | адрес */
+  align-items: center;
+  padding: 92px 50px; /* Примерные отступы, позже уточним */
+}
+
+/* Контейнер меню (nav) */
+.header__menu {
+  justify-self: start; /* Выравниваем меню в начале своей колонки */
+}
+
+/* Список ссылок в шапке */
+.header__links-list {
+  display: flex;
+  gap: 32px; /* Расстояние между пунктами меню */
+  list-style: circle;
+}
+
+/* Пункт списка */
+.header__links-list-item {
+  font-size: 18px; /* Примерный размер, позже уточним */
+  text-underline-offset: 4px; /* Отступ подчеркивания от текста */
+}
+
+/* Пункт списка без кружочка (первый пункт "главная") */
+.header__links-list-item_no-bullit {
+  list-style: none; /* Убираем маркер */
+}
+
+/* Ссылка в шапке */
+.header__link {
+  text-decoration: underline; /* Все ссылки подчеркнуты */
+}
+
+/* Активная ссылка (без подчеркивания) */
+.header__link_active {
+  text-decoration: none;
+}
+
+/* Логотип в шапке */
+.header__logo {
+  display: block;
+  width: 148px; /* Фиксированная ширина логотипа */
+  height: 105px; /* Фиксированная высота логотипа */
+  justify-self: center; /* Выравниваем по центру своей колонки */
+}
+
+/* Изображение логотипа */
+.header__logo-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Сохраняем пропорции */
+}
+
+/* Адрес в шапке - специфичное выравнивание */
 .header__address {
-  /* Адрес в шапке (специфичное выравнивание) */
+  justify-self: end; /* Выравниваем в конце своей колонки */
+  max-width: 240px; /* Ограничиваем ширину блока с адресом */
+  font-style: normal; /* Сбрасываем курсив для address */
+  line-height: 1.35; /* Межстрочный интервал */
+  font-size: 18px;
+}
+
+/* Ссылки внутри адреса (телефон и почта) */
+.header__address a {
+  text-underline-offset: 4px;
+  display: block; /* Каждая ссылка на новой строке */
+}
+
+/* Абзац с адресом в шапке */
+.header__address p {
+  margin-top: 0; /* Убираем отступ сверху */
+  margin-bottom: 0; /* Убираем отступ снизу */
+}
+
+/* ===== MAIN секции ===== */
+.cover {
+  position: relative; /* Для позиционирования оверлея */
+  padding: 165px 50px 50px; /* Примерные отступы (сверху | по бокам | снизу) */
+  background-image: url(../images/cover.jpg); /* Фон обложки */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+/* Контейнер заголовка */
+.cover__title {
+  position: relative; /* Чтобы поднять над оверлеем */
+  z-index: 2; /* Выше оверлея */
+  font-size: 100px; /* Крупный размер */
+  font-weight: bold;
+  text-transform: uppercase; /* Все буквы заглавные */
+  line-height: 1.15; /* Межстрочный интервал */
+  letter-spacing: 0.3em; /* Общее межбуквенное расстояние */
+  color: #fff;
+  margin-bottom: 135px; /* Отступ до подзаголовка */
+}
+
+/* Общие стили для строк заголовка */
+.aligned-text {
+  display: block; /* Каждая строка - отдельный блок */
+  margin-bottom: 20px; /* Отступ между строками */
+}
+
+/* Центрированная строка */
+.aligned-text_center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%; /* Ограничиваем ширину для центрирования */
+}
+
+/* Правая строка */
+.aligned-text_right {
+  text-align: right;
+}
+
+/* Класс для увеличенного межбуквенного расстояния в отдельных местах */
+.letter-spacing-extended {
+  letter-spacing: 0.6em; /* Увеличенное расстояние */
+}
+
+/* Класс для обнуления межбуквенного расстояния у последней буквы */
+.no-letter-spacing {
+  letter-spacing: 0; /* Без дополнительного расстояния */
+}
+
+/* Контейнер для подзаголовка и кнопки */
+.cover__description {
+  position: relative;
+  z-index: 2; /* Выше оверлея */
+  display: flex;
+  justify-content: flex-end; /* Элементы прижаты к правому краю */
+  align-items: center;
+  gap: 78px; /* Расстояние между текстом и кнопкой */
+}
+
+/* Текст подзаголовка */
+.cover__description-text {
+  font-size: 22px; /* Размер текста */
+  line-height: 1.27;
+  color: #fff;
+  text-transform: uppercase; /* Заглавные буквы */
+  word-spacing: 18px; /* Увеличенное расстояние между словами */
+  text-align: center; /* Выравнивание по центру */
+}
+
+/* Кнопка "Сделать ставку" */
+.bet-button {
+  padding: 12px 32px; /* Внутренние отступы */
+  font-size: 22px; /* Размер текста */
+  text-transform: uppercase; /* Заглавные буквы */
+  color: #fff;
+  background-color: transparent; /* Прозрачный фон */
+  border: 1px solid #fff; /* Белая рамка */
+  cursor: pointer;
+  transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
+}
+
+/* Эффект при наведении на кнопку */
+.bet-button:hover {
+  opacity: 0.8; /* Легкое затемнение */
+}
+
+.lots {
+  padding: 180px 50px; /* Примерные отступы */
+}
+
+.about {
+  padding: 180px 50px; /* Примерные отступы */
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Левая колонка уже, правая шире */
+  gap: 25px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Три равные колонки */
+  padding: 180px 50px 90px; /* Примерные отступы */
 }
