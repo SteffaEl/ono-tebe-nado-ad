@@ -1,33 +1,3 @@
-/* Общие стили для ссылок */
-a {
-  text-decoration: none; /* По умолчанию ссылки без подчеркивания */
-  color: inherit; /* Наследуем цвет текста */
-}
-
-/* Подчеркиваем только ссылки в меню и адресе */
-.header__link,
-.header__address a {
-  text-decoration: underline;
-}
-
-/* Стили для адреса (общие для header и footer) */
-.address {
-  font-style: normal; /* Убираем курсив */
-  line-height: 1.35; /* Межстрочный интервал */
-  font-size: 18px;
-}
-
-/* Ссылки в адресе */
-.address a {
-  text-underline-offset: 4px;
-  display: block; /* Каждая на новой строке */
-}
-
-/* Абзац в адресе */
-.address p {
-  margin: 0; /* Убираем отступы */
-}
-
 /* Общие стили для блоков с оверлеем */
 .overlay {
   position: absolute;
@@ -41,7 +11,7 @@ a {
   display: grid;
   grid-template-columns: 1fr min-content 1fr; /* Три колонки: меню | лого | адрес */
   align-items: center;
-  padding: 92px 50px; /* Примерные отступы, позже уточним */
+  padding: 90px 50px;
 }
 
 /* Контейнер меню (nav) */
@@ -52,8 +22,9 @@ a {
 /* Список ссылок в шапке */
 .header__links-list {
   display: flex;
-  gap: 32px; /* Расстояние между пунктами меню */
+  gap: 33px; /* Расстояние между пунктами меню */
   list-style: circle;
+  margin-top: -15px;
 }
 
 /* Пункт списка */
@@ -83,6 +54,7 @@ a {
   width: 148px; /* Фиксированная ширина логотипа */
   height: 105px; /* Фиксированная высота логотипа */
   justify-self: center; /* Выравниваем по центру своей колонки */
+  margin-top: -15px;
 }
 
 /* Изображение логотипа */
@@ -95,22 +67,29 @@ a {
 /* Адрес в шапке - специфичное выравнивание */
 .header__address {
   justify-self: end; /* Выравниваем в конце своей колонки */
-  max-width: 240px; /* Ограничиваем ширину блока с адресом */
+  max-width: 236px; /* Ограничиваем ширину блока с адресом */
   font-style: normal; /* Сбрасываем курсив для address */
   line-height: 1.35; /* Межстрочный интервал */
   font-size: 18px;
+  margin-right: 4px;
+  margin-top: -5px;
 }
 
-/* Ссылки внутри адреса (телефон и почта) */
-.header__address a {
+/* Общие стили для адреса (header и footer) */
+.address {
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.35;
   text-underline-offset: 4px;
-  display: block; /* Каждая ссылка на новой строке */
 }
 
-/* Абзац с адресом в шапке */
-.header__address p {
-  margin-top: 0; /* Убираем отступ сверху */
-  margin-bottom: 0; /* Убираем отступ снизу */
+.address a {
+  display: block;
+  text-decoration: underline;
+}
+
+.address p {
+  margin: 0;
 }
 
 /* ===== MAIN секции ===== */
@@ -131,9 +110,10 @@ a {
   font-weight: bold;
   text-transform: uppercase; /* Все буквы заглавные */
   line-height: 1.15; /* Межстрочный интервал */
-  letter-spacing: 0.3em; /* Общее межбуквенное расстояние */
   color: #fff;
-  margin-bottom: 135px; /* Отступ до подзаголовка */
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* Отступ между строками */
 }
 
 /* Общие стили для строк заголовка */
@@ -145,14 +125,15 @@ a {
 /* Центрированная строка */
 .aligned-text_center {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 80%; /* Ограничиваем ширину для центрирования */
+  margin-right: -30px;
+  margin-top: 14px;
 }
 
 /* Правая строка */
 .aligned-text_right {
   text-align: right;
+  margin-right: -30px;
+  margin-top: 15px;
 }
 
 /* Класс для увеличенного межбуквенного расстояния в отдельных местах */
@@ -172,7 +153,8 @@ a {
   display: flex;
   justify-content: flex-end; /* Элементы прижаты к правому краю */
   align-items: center;
-  gap: 78px; /* Расстояние между текстом и кнопкой */
+  gap: 102px; /* Расстояние между текстом и кнопкой */
+  margin-top: 50px; /* Было auto, теперь точное значение */
 }
 
 /* Текст подзаголовка */
@@ -182,7 +164,7 @@ a {
   color: #fff;
   text-transform: uppercase; /* Заглавные буквы */
   word-spacing: 18px; /* Увеличенное расстояние между словами */
-  text-align: center; /* Выравнивание по центру */
+  margin-right: 6px;
 }
 
 /* Кнопка "Сделать ставку" */
@@ -195,6 +177,9 @@ a {
   border: 1px solid #fff; /* Белая рамка */
   cursor: pointer;
   transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
+  width: auto;
+  height: auto;
+  line-height: normal;
 }
 
 /* Эффект при наведении на кнопку */
@@ -205,7 +190,7 @@ a {
 /* ===== LOTS (лоти) ===== */
 
 .lots {
-  padding: 180px 50px; /* Примерные отступы */
+  padding: 177px 24px 1px; /* Примерные отступы */
 }
 
 /* Заголовок секции */
@@ -215,21 +200,27 @@ a {
   text-transform: uppercase;
   margin-left: 40px; /* Отступ слева как в макете */
   margin-bottom: 27px; /* Отступ до карточек */
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /* Список карточек */
 .lots__card-list {
   display: flex;
-  flex-wrap: wrap; /* Перенос на новую строку при переполнении */
+  flex-wrap: nowrap; /* неПеренос на новую строку при переполнении */
   gap: 25px; /* Расстояние между карточками */
   list-style: none; /* Убираем маркеры списка */
   margin-bottom: 30px; /* Отступ до ссылки "Посмотреть больше" */
+  justify-content: space-between;
+  align-items: stretch;
+  margin-left: 0;
 }
 
 /* Элемент списка (карточка) */
 .lots__card-list-item {
-  flex: 1 0 300px; /* Гибкая ширина, минимум 300px */
+  flex: 1 0 334px; /* Гибкая ширина, минимум 300px */
   min-height: 450px; /* Минимальная высота карточки */
+  max-width: none;
 }
 
 /* Ссылка-обертка карточки */
@@ -244,7 +235,7 @@ a {
 .card {
   position: relative; /* Контекст для оверлея */
   height: 100%; /* Занимает всю высоту ссылки */
-  padding: 50px 40px; /* Внутренние отступы для контента */
+  padding: 48px 40px 82px; /* Внутренние отступы для контента */
   display: flex;
   flex-direction: column; /* Вертикальное расположение контента */
   justify-content: space-between; /* Распределяем контент по высоте */
@@ -282,6 +273,8 @@ a {
   font-size: 20px;
   line-height: 1.2;
   z-index: 2; /* Выше оверлея */
+  margin-top: 36px;
+  margin-bottom: -36px;
 }
 
 /* Ссылка "Посмотреть больше" */
@@ -303,14 +296,9 @@ a {
 /* Весь блок about */
 .about {
   display: grid;
-  grid-template-columns: 430px 1fr; /* Левая колонка 430px, правая - всё остальное */
-  gap: 25px; /* Расстояние между колонками */
-  padding: 180px 50px;
-}
-
-/* Колонка (левая и правая) */
-.about__column {
-  /* Общие стили для колонок */
+  grid-template-columns: 1fr 2fr; /* Левая колонка 430px, правая - всё остальное */
+  gap: 2px;
+  padding: 154px 14px;
 }
 
 /* Контейнер для логотипа в левой колонке */
@@ -346,6 +334,9 @@ a {
   display: flex;
   flex-direction: column;
   gap: 25px; /* Расстояние между параграфами */
+  font-size: 20px;
+  line-height: 1.2;
+  padding: 0;
 }
 
 /* Параграфы текста */
@@ -353,6 +344,7 @@ a {
   font-size: 20px;
   line-height: 1.2;
   margin: 0; /* Убираем стандартные отступы */
+  padding: 0;
 }
 
 /* ===== FOOTER (подвал) ===== */
@@ -361,19 +353,24 @@ a {
 .footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr; /* Три равные колонки */
-  padding: 180px 50px 90px;
+  padding: 28px 50px 90px;
 }
 
 /* Адрес в футере */
 .footer .address {
-  justify-self: start; /* Выравниваем по левому краю своей колонки */
-  line-height: 1.35;
+  max-width: 240px;
   font-size: 18px;
+  line-height: 1.35;
+  text-underline-offset: 4px;
+  font-style: normal;
+  padding-left: 0;
+  justify-self: start;
 }
 
 /* Меню в футере */
 .footer__menu {
   justify-self: center; /* Центрируем в своей колонке */
+  padding-left: 0;
 }
 
 /* Список меню в футере */
