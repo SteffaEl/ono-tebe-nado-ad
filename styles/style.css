@@ -1,431 +1,326 @@
-/* Общие стили для блоков с оверлеем */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgb(0 0 0 / 0.6); /* Полупрозрачный черный */
-  z-index: 1;
-}
-
-/* ===== HEADER ===== */
+/* Глобальные стили секций */
 .header {
   display: grid;
-  grid-template-columns: 1fr min-content 1fr; /* Три колонки: меню | лого | адрес */
+  grid-template-columns: 1fr min-content 1fr;
   align-items: center;
-  padding: 90px 50px;
+  padding: 88px 50px;
 }
 
-/* Контейнер меню (nav) */
-.header__menu {
-  justify-self: start; /* Выравниваем меню в начале своей колонки */
+.cover {
+  position: relative;
+  padding: 165px 50px 50px;
+  background: url("../images/cover.jpg") center/cover no-repeat;
 }
 
-/* Список ссылок в шапке */
-.header__links-list {
+.lots {
+  padding: 177px 24px 1px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2px;
+  padding: 154px 14px;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 27px 50px 90px;
+}
+
+/* Шапка */
+.header_menu {
+  justify-self: start;
+}
+
+.menu_links {
   display: flex;
-  gap: 33px; /* Расстояние между пунктами меню */
+  gap: 32px;
   list-style: circle;
-  margin-top: -15px;
+  margin-top: -7px;
 }
 
-/* Пункт списка */
-.header__links-list-item {
-  font-size: 18px; /* Примерный размер, позже уточним */
-  text-underline-offset: 4px; /* Отступ подчеркивания от текста */
-}
-
-/* Пункт списка без кружочка (первый пункт "главная") */
-.header__links-list-item_no-bullit {
-  list-style: none; /* Убираем маркер */
-}
-
-/* Ссылка в шапке */
-.header__link {
-  text-decoration: underline; /* Все ссылки подчеркнуты */
-}
-
-/* Активная ссылка (без подчеркивания) */
-.header__link_active {
-  text-decoration: none;
-}
-
-/* Логотип в шапке */
-.header__logo {
-  display: block;
-  width: 148px; /* Фиксированная ширина логотипа */
-  height: 105px; /* Фиксированная высота логотипа */
-  justify-self: center; /* Выравниваем по центру своей колонки */
-  margin-top: -15px;
-}
-
-/* Изображение логотипа */
-.header__logo-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Сохраняем пропорции */
-}
-
-/* Адрес в шапке - специфичное выравнивание */
-.header__address {
-  justify-self: end; /* Выравниваем в конце своей колонки */
-  max-width: 236px; /* Ограничиваем ширину блока с адресом */
-  font-style: normal; /* Сбрасываем курсив для address */
-  line-height: 1.35; /* Межстрочный интервал */
+.link_list {
   font-size: 18px;
-  margin-right: 4px;
-  margin-top: -5px;
-}
-
-/* Общие стили для адреса (header и footer) */
-.address {
-  font-style: normal;
-  font-size: 18px;
-  line-height: 1.35;
   text-underline-offset: 4px;
 }
 
-.address a {
-  display: block;
-  text-decoration: underline;
+.main_link_marker {
+  text-decoration: none;
+  list-style: none;
 }
 
-.address p {
-  margin: 0;
+.header_logo {
+  justify-self: center;
+  width: 145px;
+  padding: 4px;
 }
 
-/* ===== MAIN секции ===== */
-.cover {
-  position: relative; /* Для позиционирования оверлея */
-  padding: 165px 50px 50px; /* Примерные отступы (сверху | по бокам | снизу) */
-  background-image: url(../images/cover.jpg); /* Фон обложки */
-  background-size: cover;
-  background-position: center;
-  color: #fff;
+.address {
+  justify-self: end;
+  max-width: 220px;
+  font-size: 18px;
+  line-height: 1.35;
+  text-underline-offset: 4px;
+  margin-right: 20px;
+  margin-bottom: 4px;
+  font-style: normal;
+  width: 240px;
 }
 
-/* Контейнер заголовка */
-.cover__title {
-  position: relative; /* Чтобы поднять над оверлеем */
-  z-index: 2; /* Выше оверлея */
-  font-size: 100px; /* Крупный размер */
-  font-weight: bold;
-  text-transform: uppercase; /* Все буквы заглавные */
-  line-height: 1.15; /* Межстрочный интервал */
-  color: #fff;
+/* Обложка */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.cover_title {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 6px; /* Отступ между строками */
+  gap: 6px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 100px;
+  line-height: 1.15;
+  text-transform: uppercase;
+  padding: 0;
 }
 
-/* Общие стили для строк заголовка */
-.aligned-text {
-  display: block; /* Каждая строка - отдельный блок */
-  margin-bottom: 20px; /* Отступ между строками */
+.text_cover {
+  display: block;
+  letter-spacing: 0.3em;
 }
 
-/* Центрированная строка */
-.aligned-text_center {
+.text_center {
+  display: block;
+  letter-spacing: 0.3em;
   text-align: center;
   margin-right: -30px;
   margin-top: 14px;
 }
 
-/* Правая строка */
-.aligned-text_right {
+.text_right {
+  display: block;
+  letter-spacing: 0.3em;
   text-align: right;
-  margin-right: -30px;
   margin-top: 15px;
+  justify-content: end;
+  margin-right: -30px;
 }
 
-/* Класс для увеличенного межбуквенного расстояния в отдельных местах */
-.letter-spacing-extended {
-  letter-spacing: 0.6em; /* Увеличенное расстояние */
+.letter_spacing {
+  letter-spacing: 0.6em;
 }
 
-/* Класс для обнуления межбуквенного расстояния у последней буквы */
-.no-letter-spacing {
-  letter-spacing: 0; /* Без дополнительного расстояния */
+.no_letter_spacing {
+  letter-spacing: 0;
 }
 
-/* Контейнер для подзаголовка и кнопки */
-.cover__description {
+.cover_description {
   position: relative;
-  z-index: 2; /* Выше оверлея */
+  z-index: 2;
   display: flex;
-  justify-content: flex-end; /* Элементы прижаты к правому краю */
+  justify-content: end;
   align-items: center;
-  gap: 102px; /* Расстояние между текстом и кнопкой */
-  margin-top: 50px; /* Было auto, теперь точное значение */
+  gap: 102px;
+  margin-top: 105px;
+  padding: 0;
 }
 
-/* Текст подзаголовка */
-.cover__description-text {
-  font-size: 22px; /* Размер текста */
-  line-height: 1.27;
+.cover_text {
   color: #fff;
-  text-transform: uppercase; /* Заглавные буквы */
-  word-spacing: 18px; /* Увеличенное расстояние между словами */
+  font-size: 22px;
+  line-height: 1.27;
+  text-transform: uppercase;
+  word-spacing: 18px;
   margin-right: 6px;
 }
 
-/* Кнопка "Сделать ставку" */
-.bet-button {
-  padding: 12px 32px; /* Внутренние отступы */
-  font-size: 22px; /* Размер текста */
-  text-transform: uppercase; /* Заглавные буквы */
+.button {
+  border: 1px solid #fff;
+  padding: 12px 32px;
   color: #fff;
-  background-color: transparent; /* Прозрачный фон */
-  border: 1px solid #fff; /* Белая рамка */
+  font-size: 22px;
+  text-transform: uppercase;
+  background: transparent;
   cursor: pointer;
-  transition: opacity 0.3s ease; /* Плавное изменение прозрачности */
   width: auto;
   height: auto;
   line-height: normal;
 }
 
-/* Эффект при наведении на кнопку */
-.bet-button:hover {
-  opacity: 0.8; /* Легкое затемнение */
-}
-
-/* ===== LOTS (лоти) ===== */
-
-.lots {
-  padding: 177px 24px 1px; /* Примерные отступы */
-}
-
-/* Заголовок секции */
-.lots__heading {
+/* Лоты */
+.title_lots {
+  margin-bottom: 28px;
+  padding-left: 40px;
   font-size: 40px;
-  font-weight: bold;
   text-transform: uppercase;
-  margin-left: 40px; /* Отступ слева как в макете */
-  margin-bottom: 27px; /* Отступ до карточек */
   padding-top: 0;
   padding-bottom: 0;
 }
 
-/* Список карточек */
-.lots__card-list {
+.container_lots {
   display: flex;
-  flex-wrap: nowrap; /* неПеренос на новую строку при переполнении */
-  gap: 25px; /* Расстояние между карточками */
-  list-style: none; /* Убираем маркеры списка */
-  margin-bottom: 30px; /* Отступ до ссылки "Посмотреть больше" */
+  flex-wrap: nowrap;
+  gap: 25px;
+  list-style: none;
+  margin-bottom: 30px;
   justify-content: space-between;
   align-items: stretch;
   margin-left: 0;
 }
 
-/* Элемент списка (карточка) */
-.lots__card-list-item {
-  flex: 1 0 334px; /* Гибкая ширина, минимум 300px */
-  min-height: 450px; /* Минимальная высота карточки */
+.card_lots {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  min-height: 450px;
   max-width: none;
 }
 
-/* Ссылка-обертка карточки */
-.card-link {
+.card_link {
   display: block;
-  height: 100%; /* Занимает всю высоту родителя */
-  text-decoration: none; /* Убираем подчеркивание */
-  color: #fff;
+  height: 100%;
+  text-decoration: none;
 }
 
-/* Карточка */
 .card {
-  position: relative; /* Контекст для оверлея */
-  height: 100%; /* Занимает всю высоту ссылки */
-  padding: 48px 40px 82px; /* Внутренние отступы для контента */
+  position: relative;
   display: flex;
-  flex-direction: column; /* Вертикальное расположение контента */
-  justify-content: space-between; /* Распределяем контент по высоте */
-  background-size: cover; /* Фон на всю карточку */
-  background-position: center;
-  z-index: 1; /* Поднимаем контент над оверлеем */
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 48px 40px 82px;
+  color: #fff;
+  background: center/cover no-repeat;
 }
 
-/* Фоновые изображения для разных типов карточек */
-.card_type_film {
-  background-image: url(../images/card-lot-01.jpg);
+.card_about_cinema {
+  background-image: url("../images/card-lot-01.jpg");
 }
 
-.card_type_book {
-  background-image: url(../images/card-lot-02.jpg);
+.card_about_book {
+  background-image: url("../images/card-lot-02.jpg");
 }
 
-.card_type_picture {
-  background-image: url(../images/card-lot-03.jpg);
+.card_about_picture {
+  background-image: url("../images/card-lot-03.jpg");
 }
 
-/* Заголовок карточки */
-.card__title {
+.card_title {
+  position: relative;
+  z-index: 2;
   font-size: 22px;
-  font-weight: bold;
-  text-transform: uppercase;
   line-height: 1.2;
-  text-decoration: underline; /* Подчеркивание как в макете */
-  text-underline-offset: 3px;
-  z-index: 2; /* Выше оверлея */
+  text-decoration: underline;
+  text-transform: uppercase;
 }
 
-/* Текст карточки */
-.card__text {
+.text_on_card {
+  position: relative;
+  z-index: 2;
   font-size: 20px;
   line-height: 1.2;
-  z-index: 2; /* Выше оверлея */
   margin-top: 36px;
   margin-bottom: -36px;
 }
 
-/* Ссылка "Посмотреть больше" */
-.lots__look-more-link {
-  font-size: 20px;
+.view_more {
   margin-left: 40px;
-  text-decoration: underline;
+  font-size: 20px;
   text-underline-offset: 5px;
-  color: #000;
-  transition: opacity 0.3s ease;
+  padding-top: 0;
 }
 
-.lots__look-more-link:hover {
-  opacity: 0.7;
+/* Об аукционе */
+.about_container {
+  display: contents;
 }
 
-/* ===== ABOUT (об аукционе) ===== */
-
-/* Весь блок about */
-.about {
-  display: grid;
-  grid-template-columns: 1fr 2fr; /* Левая колонка 430px, правая - всё остальное */
-  gap: 2px;
-  padding: 154px 14px;
-}
-
-/* Контейнер для логотипа в левой колонке */
-.about__logo {
+.about_logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 240px;
   height: 240px;
-  background-color: #000; /* Черный фон для круга */
-  border-radius: 50%; /* Делаем круг */
-  display: flex;
-  align-items: center; /* Вертикальное центрирование */
-  justify-content: center; /* Горизонтальное центрирование */
-  margin: 0 auto; /* Центрируем по горизонтали в своей колонке */
+  border-radius: 50%;
+  background: #000;
+  justify-self: center;
 }
 
-/* Изображение логотипа внутри круга */
-.about__logo-image {
-  width: 148px; /* Размер как в шапке */
-  height: 114px; /* Размер как в шапке */
-  object-fit: contain; /* Сохраняем пропорции */
+.about_logo_image {
+  width: 148px;
 }
 
-/* Заголовок в правой колонке */
-.about__title {
-  font-size: 40px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-top: 100px; /* Отступ сверху для выравнивания с центром круга */
-  margin-bottom: 100px; /* Отступ снизу перед текстом */
-}
-
-/* Контейнер для текста */
-.about__text {
+.about_content {
   display: flex;
   flex-direction: column;
-  gap: 25px; /* Расстояние между параграфами */
+  padding: 0;
+  gap: 0;
+}
+
+.title_about {
+  margin: 100px 0;
+  font-size: 40px;
+  text-transform: uppercase;
+  align-self: flex-start;
+  line-height: normal;
+}
+
+.about_text {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
   font-size: 20px;
   line-height: 1.2;
   padding: 0;
 }
 
-/* Параграфы текста */
-.about__text p {
-  font-size: 20px;
-  line-height: 1.2;
-  margin: 0; /* Убираем стандартные отступы */
+.text_up, .text_down {
   padding: 0;
 }
 
-/* ===== FOOTER (подвал) ===== */
-
-/* Весь блок футера */
-.footer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Три равные колонки */
-  padding: 28px 50px 90px;
+/* Подвал */
+.footer_menu {
+  justify-self: center;
+  padding-left: 0;
 }
 
-/* Адрес в футере */
-.footer .address {
+.footer_menu_links {
+  list-style: none;
+  text-align: center;
+}
+
+.footer_links {
+  font-size: 18px;
+  text-underline-offset: 4px;
+}
+
+.footer_main {
+  text-decoration: none;
+}
+
+.footer_images {
+  justify-self: end;
+  display: flex;
+  gap: 48px;
+  list-style: none;
+}
+
+.images_footer {
+  width: 48px;
+}
+
+.footer_address {
   max-width: 240px;
   font-size: 18px;
   line-height: 1.35;
   text-underline-offset: 4px;
   font-style: normal;
   padding-left: 0;
-  justify-self: start;
-}
-
-/* Меню в футере */
-.footer__menu {
-  justify-self: center; /* Центрируем в своей колонке */
-  padding-left: 0;
-}
-
-/* Список меню в футере */
-.footer__menu-list {
-  list-style: none; /* Убираем маркеры */
-  text-align: center; /* Центрируем текст */
-}
-
-/* Пункт меню в футере */
-.footer__menu-list-item {
-  margin-bottom: 5px; /* Небольшой отступ между пунктами */
-}
-
-/* Ссылка в меню футера */
-.footer__menu-link {
-  font-size: 18px;
-  text-decoration: underline; /* Все ссылки подчеркнуты */
-  text-underline-offset: 4px;
-  color: #000;
-  transition: opacity 0.3s ease;
-}
-
-/* Активная ссылка в меню футера */
-.footer__menu-link_active {
-  text-decoration: none; /* Активная ссылка без подчеркивания */
-}
-
-.footer__menu-link:hover {
-  opacity: 0.7;
-}
-
-/* Список социальных сетей */
-.footer__social-list {
-  justify-self: end; /* Выравниваем по правому краю своей колонки */
-  display: flex;
-  gap: 48px; /* Расстояние между иконками */
-  list-style: none; /* Убираем маркеры */
-}
-
-/* Пункт списка социальных сетей */
-.footer__social-list-item {
-  width: 48px; /* Фиксированная ширина для иконки */
-  height: 48px; /* Фиксированная высота для иконки */
-}
-
-/* Ссылка социальной сети */
-.footer__social-link {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* Иконка социальной сети */
-.footer__social-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Сохраняем пропорции иконок */
 }
